@@ -1,13 +1,3 @@
-# PROJECT Home
-
-Welcome to the PROJECT Project!
-
-## Team
-
-* Randall John
-* Saurabh Arun Bodke
-* Ajay Shewale
-* Peter Willis
 
 ## [Design Documentation](DesignDoc)
 
