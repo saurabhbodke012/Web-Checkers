@@ -1,0 +1,10 @@
+To compile and start up the application:
+	mvn compile exec:java
+	
+To connect to the WebCheckers server:
+	localhost:4567
+	
+To play as more than one player in the same browser on different tabs:
+	127.0.0.1:4567 in the first tab
+	127.0.0.2:4567 in the second tab
+	127.0.0.n:4567 in the nth tab, if desired
