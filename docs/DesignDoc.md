@@ -3,14 +3,6 @@ geometry: margin=1in
 ---
 # PROJECT Design Documentation
 
-## Team Information
-* Team name: Team 3
-* Team members
-  * Randall John
-  * Saurabh Arun Bodke
-  * Ajay Shewale
-  * Peter Willis
-
 ## Executive Summary
 
 Webcheckers is a web-based Java application that utilizes the Spark and Freemarker frameworks.
@@ -67,7 +59,7 @@ The spectator enhancement has been implemented in the application.
 
 ## Application Domain
 
-![The WebCheckers Domain Model](team_3_domain_model.png)
+![The WebCheckers Domain Model](domain_model.png)
 
 The application domain mirrors that of a real checkers game. Each game, which is bound by the
 American rules for checkers, contains a number of components. The checkers board contains an 8x8 collection
@@ -103,7 +95,7 @@ Details of the components within these tiers are supplied below.
 This section describes the web interface flow; this is how the user views and interacts
 with the WebCheckers application.
 
-![The WebCheckers Web Interface Statechart](team_3_state_diagram.png)
+![The WebCheckers Web Interface Statechart](state_diagram.png)
 
 When a user first connects to the web server running an instance of WebCheckers, they are presented
 with a home page containing a link to sign in and the number of players that are currently logged in.
@@ -315,33 +307,13 @@ The actual game logic is handled by Model Tier. It contains a game class that ke
       * D: 0.21
       * I: 0.79
   * <b>The A metrics are 0 across the board because WebCheckers does not utilize abstract classes. Instability
-  levels are normal as well, as they are all between 0 and 0.3 or 0.7 and 1.0. This means that WebCheckers classes are
-  either very stable or very unstable. The
+  levels are normal as well, as they are all between 0 and 0.3 or 0.7 and 1.0. This means that WebCheckers classes 
+  are either very stable or very unstable. The
   Ce and Ca metrics are valid as well, as when the Ce is low, the I tends to be low, and when the Ca is low, the I
   tends to be high. 
    </b>
 
-### Project Improvements
 
-<b>If our project were to continue, we would consider making the following changes:</b>
-* Partitioning the large methods in <i>ui.PostValidateMoveRoute and util.ValidationHelper</i>
-into smaller helper methods to lower the cyclomatic complexity
-
-
-* Thoroughly unit testing all tiers
-  * As a result of time constraints, most of the unit testing effort went into the application and model tiers, 
-  so UI coverage is lacking. 
-  
-
-<b>We would decide against:</b>
-* Including abstract classes and inheritance
-  * Although the Martin Package metrics suggest we use these, they would not add any value to the design since
-  there really is no hierarchical structure (i.e., "is-a" relationship) between classes.
-   
-  
-* Aiming for 100% comment coverage
-  * Much of our code is self-documenting, so adding too many JavaDoc comments would
-  corrupt the cleanliness of the code and add unecessary complexity.
 
 
 ## Testing
@@ -363,14 +335,9 @@ Issues found during acceptance testing:
 
 ![Final UI Coverage](UICoverage.png)
 
-As mentioned above, due to time constraints, we prioritized unit testing the application, model, and util
-packages over the user interface. We surmised that proper testing of the application business logic was critical to verification of the
-project's capabilities as well as the establishment of a minimum viable product. However, although the UI tier was not thoroughly unit tested,
-the acceptance criteria tests stressed many aspects of the UI to their limits. Luckily, the acceptance criteria tests passed with
-flying colors, so we have confidence that the UI features that we set out to forge function correctly.
+
 
 ### Design Comments
-* Our front-end design is pretty much complete.
 * The Controller Principle has been followed. This principle was followed in the PlayerLobby and GameCenter classes.
-* We paid special attention to the notion of single responsibility principle and had a high level of cohesion. A class should only have one task and one goal. For example, we strictly adhere to the Single Responsibility Principle in our UI tier (GetGameRoute, GetHomeRoute, and so on).
-* A pure fabrication is a class that does not reflect a concept in the issue domain but assists in the adoption of those cohesive sets of responsibilities that support high cohesion, low coupling, and reuse. In validating the moves helper function, we followed this principle.
+* Special attention was paid to the notion of single responsibility principle and had a high level of cohesion. A class should only have one task and one goal. For example, strictly adhered to the Single Responsibility Principle in our UI tier (GetGameRoute, GetHomeRoute, and so on).
+* A pure fabrication is a class that does not reflect a concept in the issue domain but assists in the adoption of those cohesive sets of responsibilities that support high cohesion, low coupling, and reuse. In validating the moves helper function, followed this principle.
